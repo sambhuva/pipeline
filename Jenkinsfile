@@ -1,13 +1,13 @@
 node () {
   
-   if  (env.BRANCH_NAME == 'master') {
-     echo "checkout for branch"+env.BRANCH_NAME   
+   if  (env.BRANCH_NAME != 'develop') {
+     echo "checkout for branch=============================================="+env.BRANCH_NAME   
      checkout()
         build()            
     } 
     else { 
     }
-   echo "checkout for branch"+env.BRANCH_NAME   
+   echo "checkout for branch==========================================="+env.BRANCH_NAME   
  checkout()
 }
 
