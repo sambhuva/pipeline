@@ -31,7 +31,7 @@ node {
     if  (env.BRANCH_NAME == 'master') {
         
         checkout()
-        build()
+       
        
     } // master branch / production
     else { 
