@@ -1,7 +1,7 @@
 node () {
   stage ('Build') {
   
-    withMaven(...) {
+    withMaven() {
  
       bat "mvn clean install"
  
