@@ -12,28 +12,25 @@ Heroku API key as secret text with ID 'HEROKU_API_KEY'
 GitHub Token value as secret text with ID 'GITHUB_TOKEN'
 */
 
-node {
+
 pipeline {
     agent any
    tools {
         maven 'maven'
         jdk 'java'
     }
-   try {
+ 
         //do some stuff, run your tests, etc.            
    
     // pull request or feature branch
     if  (env.BRANCH_NAME == 'master') {
         
         checkout()
+       build ()
        
-       
-    } // master branch / production
-    else { 
-       
-    }
-     }finally{ println("done");}
-}
+    } 
+   
+
 
 def checkout () {
     stage 'Checkout code'
