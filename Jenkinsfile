@@ -13,7 +13,8 @@ GitHub Token value as secret text with ID 'GITHUB_TOKEN'
 */
 
 node {
-
+pipeline {
+    agent any
    tools {
         maven 'maven'
         jdk 'java'
@@ -61,4 +62,5 @@ def build () {
             }
   }
  }
+}
 }
