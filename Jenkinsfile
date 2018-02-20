@@ -15,7 +15,7 @@ GitHub Token value as secret text with ID 'GITHUB_TOKEN'
 node {
 
      server = Artifactory.server "ART"
-     buildInfo.env.capture = true
+  
      rtMaven = Artifactory.newMavenBuild()
        
     
