@@ -26,6 +26,7 @@ node {
    
     // pull request or feature branch
     if  (env.BRANCH_NAME == 'master') {
+         context="beanch/checkout";
         checkout()
         build()
        
