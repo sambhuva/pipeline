@@ -4,7 +4,7 @@ pipeline {
         maven 'maven'
         jdk 'java'
     }
-   withMaven(...) {
+   withMaven() {
  
       bat "mvn clean install"
  
