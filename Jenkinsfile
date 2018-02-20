@@ -16,12 +16,11 @@ def checkout(){
     context="continuous-integration/jenkins/"
     context +="branch/checkout"
     checkout scm
-  echo "checkout done"
 }
 
 def build(){
  stage ('Build') {
-  echo "starting building"
+  echo "starting building=========================================================="
     withMaven() {
  
       bat "mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -B -V"
