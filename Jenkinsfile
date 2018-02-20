@@ -3,11 +3,12 @@ node () {
    if  (env.BRANCH_NAME != 'develop') {
      echo "checkout for branch=============================================="+env.BRANCH_NAME   
      checkout()
-        build()            
+               
     } 
     else { 
+      build()
     }
-   echo "checkout for branch==========================================="+env.BRANCH_NAME   
+    
  checkout()
 }
 
