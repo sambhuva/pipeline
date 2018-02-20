@@ -38,8 +38,6 @@ node {
 
 def checkout () {
     stage 'Checkout code'
-    context="continuous-integration/jenkins/"
-    context += "branch/checkout"
     checkout scm
     setBuildStatus ("${context}", 'Checking out completed', 'SUCCESS')
 }
