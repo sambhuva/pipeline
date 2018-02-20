@@ -1,10 +1,29 @@
 node () {
-  stage ('Build') {
   
+   if  (env.BRANCH_NAME != 'master') {
+        checkout()
+        build()            
+    } 
+    else { 
+    }
+ checkout()
+}
+
+def checkout(){
+ stage 'Checkout code'
+    context="continuous-integration/jenkins/"
+    context +="branch/checkout"
+    checkout scm
+  echo "checkout done"
+}
+
+def build(){
+ stage ('Build') {
+  echo "starting building"
     withMaven() {
  
       bat "mvn clean install"
  
-    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+    } 
   }
 }
