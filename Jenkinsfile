@@ -1,6 +1,6 @@
 node () {
   
-   if  (env.BRANCH_NAME != 'master') {
+   if  (env.BRANCH_NAME == 'master') {
         checkout()
         build()            
     } 
