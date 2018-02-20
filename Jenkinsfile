@@ -15,8 +15,9 @@ GitHub Token value as secret text with ID 'GITHUB_TOKEN'
 node {
 
      server = Artifactory.server "ART"
-     buildInfo = Artifactory.newBuildInfo()
      buildInfo.env.capture = true
+     rtMaven = Artifactory.newMavenBuild()
+       
     
     // we need to set a newer JVM for Sonar
     env.JAVA_HOME="${tool 'java'}"
@@ -47,5 +48,9 @@ def checkout () {
 
 def build () {
     stage 'Build'
-    sh "mvn clean install"
+    rtMaven.tool = 'maven' // Tool name from Jenkins configuration
+       
+    
+        rtMaven.run pom: 'pom.xml', goals: ' clean install', buildInfo: buildInfo
+        buildInfo = Artifactory.newBuildInfo()
 }
