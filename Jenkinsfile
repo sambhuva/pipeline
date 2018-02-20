@@ -26,7 +26,7 @@ node {
    
     // pull request or feature branch
     if  (env.BRANCH_NAME == 'master') {
-         context="beanch/checkout";
+        
         checkout()
         build()
        
@@ -39,8 +39,10 @@ node {
 
 def checkout () {
     stage 'Checkout code'
+     context="continuous-integration/jenkins/"
+    context += "branch/checkout"
     checkout scm
-    setBuildStatus ("${context}", 'Checking out completed', 'SUCCESS')
+   
 }
 
 def build () {
