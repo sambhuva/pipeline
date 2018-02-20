@@ -1,7 +1,7 @@
 #!groovy
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-
+def rtMaven
 /*
 Please make sure to add the following environment variables:
 HEROKU_PREVIEW=<your heroku preview app>
