@@ -66,4 +66,4 @@ def getBranch() {
     branch = tokens[tokens.size()-1]
     return "${branch}"
 }
-}
+
