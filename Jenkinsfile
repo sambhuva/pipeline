@@ -30,7 +30,7 @@ pipeline {
        
     } 
    
-
+}
 
 def checkout () {
     stage 'Checkout code'
@@ -59,5 +59,4 @@ def build () {
             }
   }
  }
-}
 }
