@@ -21,7 +21,9 @@ node {
     // we need to set a newer JVM for Sonar
     env.JAVA_HOME="${tool 'java'}"
     env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
-    
+     try {
+        //do some stuff, run your tests, etc.            
+   
     // pull request or feature branch
     if  (env.BRANCH_NAME == 'master') {
         checkout()
@@ -31,6 +33,7 @@ node {
     else { 
        
     }
+     }
 }
 
 def checkout () {
