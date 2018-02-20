@@ -33,7 +33,7 @@ node {
     else { 
        
     }
-     }
+     }finally{ println("done");}
 }
 
 def checkout () {
