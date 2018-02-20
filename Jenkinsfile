@@ -1,9 +1,7 @@
 #!groovy
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
- def server
-    def buildInfo
-    def rtMaven
+
 /*
 Please make sure to add the following environment variables:
 HEROKU_PREVIEW=<your heroku preview app>
@@ -16,15 +14,11 @@ GitHub Token value as secret text with ID 'GITHUB_TOKEN'
 
 node {
 
-     server = Artifactory.server "ART"
-  
-     rtMaven = Artifactory.newMavenBuild()
-       
-    
-    // we need to set a newer JVM for Sonar
-    env.JAVA_HOME="${tool 'java'}"
-    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
-     try {
+   tools {
+        maven 'maven'
+        jdk 'java'
+    }
+   try {
         //do some stuff, run your tests, etc.            
    
     // pull request or feature branch
@@ -49,10 +43,22 @@ def checkout () {
 }
 
 def build () {
-    stage 'Build'
-    rtMaven.tool = 'maven' // Tool name from Jenkins configuration
+ stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+
        
     
-        rtMaven.run pom: 'pom.xml', goals: ' clean install', buildInfo: buildInfo
-        buildInfo = Artifactory.newBuildInfo()
+  stage ('Build'){
+   steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+  }
+ }
 }
