@@ -9,6 +9,9 @@ node () {
     checkout()
     }
 }
+
+
+
 def checkout(){
  stage 'Checkout code'
     context="continuous-integration/jenkins/"
