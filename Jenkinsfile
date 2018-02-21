@@ -1,6 +1,6 @@
 node () {
   
-   if  (env.BRANCH_NAME != 'develop') {
+   if  (env.BRANCH_NAME == 'develop') {
      echo "checkout for branch=============================================="+env.BRANCH_NAME   
      checkout()
                
