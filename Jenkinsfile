@@ -1,7 +1,7 @@
 node () {
   
    if  (env.BRANCH_NAME != 'develop') {
-     echo "checkout for branch=============================================="+env.BRANCH_NAME   
+     echo "checkout for branch==============================================-------------------"+env.BRANCH_NAME   
       build()
                
     } 
@@ -19,7 +19,7 @@ def checkout(){
 
 def build(){
  stage ('Build') {
-  echo "starting building=========================================================="
+  echo "starting building==========================================================-------------"
     withMaven() {
  
       bat "mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -B -V"
