@@ -1,4 +1,4 @@
-node () {
+node ('Build_Machine') {
   
    if  (env.BRANCH_NAME != 'develop') {
      echo "checkout for branch==============================================-------------------"+env.BRANCH_NAME   
@@ -22,10 +22,10 @@ def checkout(){
 def build(){
  stage ('Build') {
   echo "starting building==========================================================-------------"
-    steps {
+  
  
       bat "mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -B -V"
  
-    } 
+
   }
 }
